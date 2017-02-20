@@ -1,8 +1,7 @@
-#img_container {
+#imgage_container {
     position:relative;
     display:inline-block;
-    text-align: right;
-    float: left;
+    background: #4433AA;
 }
 .button {
     position:absolute;
@@ -12,3 +11,7 @@
     height:30px;
     
 }
+footer{
+    position: relative;
+}
+
