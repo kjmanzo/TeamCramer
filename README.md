@@ -1,5 +1,6 @@
 # ROLL CALL
     - Nathan Mathis
-    - ???Kevin Lewis???
+	- ???Kevin Lewis???
 	- Jake wuz here
 	- Katie is here!
+	- Cramer
