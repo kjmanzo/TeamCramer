@@ -24,8 +24,17 @@
 - [Django Tutorial](https://docs.djangoproject.com/en/1.10/intro/tutorial01/)
 
 
-### Virtual Environment Setup For Python 3
+### Useful Terminal Commands
 ```
+VIRTUAL ENVIRONMENTS:
 mkvirtualenv --python=/usr/bin/python3.5 <name_of_env>
+workon <name_of_env>
+
+DOWNLOADING REQUIREMENTS ON VIRTUAL ENVIRONMENT:
 python bootstrap.py
 ``` 
+
+### remember the three-step guide to making model changes: (from django tutorial)
+- Change your models (in models.py).
+- Run python manage.py makemigrations to create migrations for those changes
+- Run python manage.py migrate to apply those changes to the database.
