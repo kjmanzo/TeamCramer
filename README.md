@@ -22,3 +22,8 @@
 
 ### References
 - [Django Tutorial](https://docs.djangoproject.com/en/1.10/intro/tutorial01/)
+
+
+### Virtual Environment Setup For Python 3
+- 'mkvirtualenv --python=/usr/bin/python3.5 <name_of_env>'
+- 'python bootstrap.py' 
