@@ -18,7 +18,7 @@
 - Katie is here
 - Cramer
 - Katrina
-
+- Ben Jeffrey
 
 ### References
 - [Django Tutorial](https://docs.djangoproject.com/en/1.10/intro/tutorial01/)
