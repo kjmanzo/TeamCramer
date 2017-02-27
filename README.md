@@ -9,6 +9,7 @@
 ### Discussion Points for Next Week
 - Assign roles with new django understanding
 - Decide what to do over break
+- Discussing Model design
 
 
 ### Team Members
@@ -16,7 +17,7 @@
 - ???Kevin Lewis???
 - Jake wuz here
 - Katie is here
-- Cramer
+- Isabel Hernandez
 - Katrina
 - Ben Jeffrey
 
@@ -25,16 +26,14 @@
 
 
 ### Useful Terminal Commands
+##### Virtual Environments:
 ```
-VIRTUAL ENVIRONMENTS:
-mkvirtualenv --python=/usr/bin/python3.5 <name_of_env>
+mkvirtualenv <name_of_env>
 workon <name_of_env>
-
-DOWNLOADING REQUIREMENTS ON VIRTUAL ENVIRONMENT:
 python bootstrap.py
 ``` 
 
-### remember the three-step guide to making model changes: (from django tutorial)
+### Guide To Changing Models:
 - Change your models (in models.py).
-- Run python manage.py makemigrations to create migrations for those changes
-- Run python manage.py migrate to apply those changes to the database.
+- Run `python manage.py makemigrations` to create migrations for those changes.
+- Run `python manage.py migrate` to apply those changes to the database.

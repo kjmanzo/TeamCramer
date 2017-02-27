@@ -2,6 +2,6 @@ from django.contrib import admin
 
 # Register your models here.
 
-from .models import Charitiy
+from .models import Charity
 
-admin.site.register(Charitiy)
+admin.site.register(Charity)
