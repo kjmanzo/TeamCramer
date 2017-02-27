@@ -27,7 +27,7 @@ def main():
     file_path = os.path.dirname(__file__)
 
     pip_args = ["pip", "install", "--requirement",
-        os.path.join(file_path, "conf/requirements.txt")]
+        os.path.join(file_path, "requirements.txt")]
 
     if options.upgrade:
         pip_args.append("--upgrade")
