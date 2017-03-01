@@ -14,13 +14,14 @@
 
 ### Team Members
 - Nathan Mathis
-- ???Kevin Lewis???
+- Kevin Lewis???
 - Jake wuz here
 - Katie is here
 - Isabel Hernandez
 - xxJacksonHeyxx
 - Katrina
 - Ben Jeffrey
+-Mitchell Smith
 
 ### References
 - [Django Tutorial](https://docs.djangoproject.com/en/1.10/intro/tutorial01/)
