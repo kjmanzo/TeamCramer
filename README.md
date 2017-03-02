@@ -1,15 +1,14 @@
 # Bangor Savings Charity Rewards
 
 
-### Current Weekly Objective (By 3/1)
-- Get everyone to add their name to the team members section of the readme
-- Get everyone up to part 2 on the django tutorial
+### Current Weekly Objective (By 3/22)
+- Jake and Katie research views
+- webdev and infra teams code and make PRs 
 
-
-### Discussion Points for Next Week
-- Assign roles with new django understanding
-- Decide what to do over break
-- Discuss Model and View designs
+### Discussion Points for Next Meeting
+- Jake and Katie lead View designs
+- webdev and infra talk about their PRs
+- potentially swap a few roles 
 
 
 ### Team Members
@@ -21,7 +20,7 @@
 - xxJacksonHeyxx
 - Katrina
 - Ben Jeffrey
--Mitchell Smith
+- Mitchell Smith
 
 ### References
 - [Django Tutorial](https://docs.djangoproject.com/en/1.10/intro/tutorial01/)
@@ -41,19 +40,17 @@ python bootstrap.py 		-- pip installs requirements.txt on your virtual environme
 - Run `python manage.py migrate` to apply those changes to the database.
 
 
-### March 1st Meeting Notes
+### 3/1 Meeting Notes
 ##### Model Additions
 	charity 
 		- url
 		- picture
 
-	
-	user
+		user
 		- friendslist - foriegnkey for other users
 		- list of dicts with charity and points given
 		- total points given
 		- picture
-
 
 	activity / interaction
 		- user id for guy who did
@@ -63,19 +60,17 @@ python bootstrap.py 		-- pip installs requirements.txt on your virtual environme
 
 
 ##### New Roles / Teams
-views - GETTING POSTING
-	- jake
-	- katie
+	views
+		- jake
+		- katie
 
+	infrastructure 
+		- ben
+		- jackson
+		- katrina
 
-models / urls 
-	- ben
-	- jackson
-	- katrina
-
-
-web stuff
-	- mitchell
-	- nathan
-	- cramer
-	- kevin
+	webdev
+		- mitchell
+		- nathan
+		- cramer
+		- kevin
