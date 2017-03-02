@@ -9,7 +9,7 @@
 ### Discussion Points for Next Week
 - Assign roles with new django understanding
 - Decide what to do over break
-- Discussing Model design
+- Discuss Model and View designs
 
 
 ### Team Members
@@ -26,14 +26,55 @@
 
 
 ### Useful Terminal Commands
-##### Virtual Environments:
 ```
-mkvirtualenv <name_of_env>
-workon <name_of_env>
-python bootstrap.py
+mkvirtualenv <name_of_env> 	-- virtualenvwrapper - makes virtual environment
+workon <name_of_env>		-- virtualenvwrapper - changes to selected virtual environment
+python bootstrap.py 		-- pip installs requirements.txt on your virtual environment
 ``` 
+
 
 ### Guide To Changing Models:
 - Change your models (in models.py).
 - Run `python manage.py makemigrations` to create migrations for those changes.
 - Run `python manage.py migrate` to apply those changes to the database.
+
+
+### March 1st Meeting Notes
+##### Model Additions
+	charity 
+		- url
+		- picture
+
+	
+	user
+		- friendslist - foriegnkey for other users
+		- list of dicts with charity and points given
+		- total points given
+		- picture
+
+
+	activity / interaction
+		- user id for guy who did
+		- charity key
+		- english description (points given and charity)
+		- timestamp
+
+
+##### New Roles / Teams
+views - GETTING POSTING
+	- jake
+	- katie
+
+
+models / urls 
+	- ben
+	- jackson
+	- katrina
+
+
+web stuff
+	- mitchell
+	- nathan
+	- cramer
+	- kevin
+
