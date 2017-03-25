@@ -9,9 +9,8 @@ class Charity(models.Model):
 	description = models.CharField(max_length=360, blank=True, null=True)
 	image_url = models.URLField(default="http://google.com")
 	website = models.URLField(default="http://google.com")
-	points = models.IntegerField(default=0)
-	latitude = models.IntegerField(default=0)
-	longitude = models.IntegerField(default=0)
+	latitude = models.FloatField(default=0)
+	longitude = models.FloatField(default=0)
 
 	def __str__(self):
 		return self.name
