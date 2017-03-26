@@ -274,7 +274,7 @@ html {
     background-color: #67fc00;
 }
 
-@media screen and (max-width: 600px){
+@media screen and (max-width: 1080px){
     ul.topnav li.right,
     ul.topnav li {float: none;}
     .textXLarge
