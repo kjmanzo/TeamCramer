@@ -1,0 +1,10 @@
+{% load static %}
+<link rel="stylesheet" type="text/css" href="{% static 'rewards_app/style.css' %}" />
+
+<h1>rewards_app</h1>
+
+<form action="/add-friendy/" method="post">
+    {% csrf_token %}
+    {{ form }}
+    <input type="submit" value="Submit" />
+</form>
