@@ -180,6 +180,24 @@ html {
     border: none;
     box-shadow: 2px 2px 5px #CCCCCC;
 }
+.actionButtonTable
+{
+    width:100%;
+    height: 100%;
+    display:table;
+}
+.actionButtonTextCell
+{
+    display: table-cell;
+    vertical-align: middle;
+    width:80%;
+}
+.actionButtonIconCell
+{
+    display: table-cell;
+    vertical-align: middle;
+    width:20%;
+}
 
 .background
 {
@@ -274,7 +292,7 @@ html {
     background-color: #67fc00;
 }
 
-@media screen and (max-width: 1080px){
+@media screen and (max-width: 750px){
     ul.topnav li.right,
     ul.topnav li {float: none;}
     .textXLarge

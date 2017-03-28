@@ -2,6 +2,7 @@
 <html lang="en" >
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width" />
     <title>Title</title>
     <link rel="stylesheet" type="text/css" href="../../static/rewards_app/home.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
@@ -81,7 +82,7 @@
 </ul>
 <div class="background" style="">
 
-    <div class="card marginBottom" style="height:20%">
+    <div class="card marginBottom" style="height:20%; min-height: 85px;">
         <div class="halfHorizontalDiv">
             <div class="text textNormal gray">Charity Donationson</div>
             <div class="text textSmall gray">Grandmaster of Giving</div>
@@ -102,12 +103,22 @@
             </div>
         </div>
     </div>
-    <div style="height:10%;">
+    <div style="height:10%; min-height: 40px;">
         <div class="halfHorizontalDiv" style="width:49%; margin-right:1%" >
-            <button class="pointActionButton" style="" onclick="addToPoints(750)"><span class="halfHorizontalDiv" style="line-height: 40px; width:80%;">Check Purchases</span><i class="material-icons left halfHorizontalDiv" style="line-height: 40px; width:20%; vertical-align: middle">credit_card</i></button>
+            <button class="pointActionButton"  onclick="addToPoints(750)">
+                <div class="actionButtonTable">
+                    <span  class="actionButtonTextCell">Check Purchases</span>
+                    <span class="actionButtonIconCell"><i class="material-icons " >credit_card</i></span>
+                </div>
+            </button>
         </div>
         <div class="halfHorizontalDiv" style="width:49%; margin-left:1%">
-            <button class="pointActionButton"  ><span class="halfHorizontalDiv" style="line-height: 40px; width:80%;">Check In</span><i class="material-icons left halfHorizontalDiv" style="line-height: 40px; width:20%; vertical-align: middle">beenhere</i></button>
+            <button class="pointActionButton"  >
+                <div class="actionButtonTable">
+                    <span  class="actionButtonTextCell">Check In</span>
+                    <span class="actionButtonIconCell"><i class="material-icons " >beenhere</i></span>
+                </div>
+            </button>
         </div>
     </div>
     <div style="height:55%; margin-top: 5%">
