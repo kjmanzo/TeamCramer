@@ -22,8 +22,8 @@ class User(models.Model):
 	name = models.CharField(max_length=64)
 	current_points = models.IntegerField(default=0)
 	total_points = models.IntegerField(default=0)
-	friends = models.ManyToManyField("self")
-	achievements = models.ManyToManyField("Achievement")
+	friends = models.ManyToManyField("self",blank=True)
+	achievements = models.ManyToManyField("Achievement",blank=True)
 
 	def __str__(self):
 		return self.name
