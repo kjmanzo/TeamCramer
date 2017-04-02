@@ -1,8 +1,10 @@
-from django.shortcuts import render
+from django.shortcuts import render, get_object_or_404
+from django.template import RequestContext
 from django.template import loader
 from django.http import HttpResponse
 
 from .models import Charity
+from .models import User
 from .forms import FriendForm
 
 
@@ -30,4 +32,11 @@ def add_friend(request):
     else:
         form = FriendForm()
 
-    return render(request, 'rewards_app/friends.html', {'form': form})
+    # return render(request, 'rewards_app/friends.html', {'form': form})
+
+	users = User.objects.order_by('-name')
+	context = {
+        'form':form,
+        'users':users
+    }
+    return render(request, 'rewards_app/friends.html', context)

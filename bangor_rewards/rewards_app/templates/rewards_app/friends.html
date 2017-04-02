@@ -3,16 +3,17 @@
 
 <h1>rewards_app</h1>
 
-<form action="/add-friend/" method="post">
+<form action="/add-friendy/" method="post">
 
-{% for field in form %}
-    <div class="fieldWrapper">
-        {{ field.errors }}
-        {{ field.label_tag }} {{ field }}
-    </div>
-{% endfor %}
+    {% csrf_token %}
+    {{ form.friend_name }}
 
-<input type="submit" value="Submit" />
+    <input type="submit" value="Submit" />
+
+    {% csrf_token %}
+    {{ form.friend_list }}
+
+    {% csrf_token %}
+    {{ users }}
 
 </form>
-
