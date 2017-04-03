@@ -7,5 +7,4 @@ from .models import User
 # read this ^
 
 class FriendForm(forms.Form):
-	friend_name = forms.CharField(label='add friend',max_length=100)
-	friend_list = forms.CharField(label='friends list',widget=forms.Textarea(attrs={'id':'friendsList'}))
+	friend_name = forms.CharField(label='Friend\'s Username:',max_length=100)

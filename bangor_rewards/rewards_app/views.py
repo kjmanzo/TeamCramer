@@ -2,9 +2,10 @@ from django.shortcuts import render, get_object_or_404
 from django.template import RequestContext
 from django.template import loader
 from django.http import HttpResponse
+from django.http import HttpResponseRedirect
 
 from .models import Charity
-from .models import User
+from .models import Profile
 from .forms import FriendForm
 
 
@@ -17,6 +18,7 @@ def index(request):
 
 #forms tutorial...
 def add_friend(request):
+	# /rewards_app/add_friend/ part...
     # if this is a POST request we need to process the form data
     if request.method == 'POST':
         # create a form instance and populate it with data from the request:
@@ -26,17 +28,22 @@ def add_friend(request):
             # process the data in form.cleaned_data as required
             # ...
             # redirect to a new URL:
+            print("FRIEND FORM IS HERE::"+form.friend_name)
             return HttpResponseRedirect('/thanks/')
 
     # if a GET (or any other method) we'll create a blank form
     else:
         form = FriendForm()
 
-    # return render(request, 'rewards_app/friends.html', {'form': form})
-
-	users = User.objects.order_by('-name')
+    # /rewards_app/friends/ part...
+	profiles = Profile.objects.order_by('-name')
+	# friends = request.user.inlines.Profile.friends.objects.order_by('-name')
+	# print(request.user.username)
+	
 	context = {
         'form':form,
-        'users':users
+        'profiles':profiles,
+        # 'friends':friends,
     }
+
     return render(request, 'rewards_app/friends.html', context)

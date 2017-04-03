@@ -2,24 +2,36 @@
 <link rel="stylesheet" type="text/css" href="{% static 'rewards_app/style.css' %}" />
 
 <h1>Friends List</h1>
-<h3>Bangor Savings Rewards App</h3>
 
 
-<form action="/add-friend/" method="post">
+<h2>Bangor Savings Rewards App</h2>
+
+
+<form action="/rewards_app/add_friend/" method="post">
 
     {% csrf_token %}
+    {{ form.friend_name.label }}
     {{ form.friend_name }}
 
     <input type="submit" value="Add Friend"/>
-
-    {% csrf_token %}
-    {{ form.friend_list }}
+</form>	
 
 
-<h4>List of Users (name:points)</h4>
-{% for u in users %}
+<h4>List of All Profiles</h4>
+
+{% for u in profiles %}
+	-
     {{ u.name }}:
     {{ u.current_points }},
+    <br></br>
 {% endfor %}
 
-</form>
+
+<h4>List of All Friends</h4>
+
+{% for v in friends %}
+	-
+    {{ v.name }}:
+    {{ v.current_points }},
+    <br></br>
+{% endfor %}

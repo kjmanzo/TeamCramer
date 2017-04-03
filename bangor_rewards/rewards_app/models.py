@@ -1,6 +1,8 @@
 from __future__ import unicode_literals
 
 from django.db import models
+from django.contrib.auth.models import User
+
 
 # Create your models here.
 class Charity(models.Model):
@@ -18,12 +20,14 @@ class Charity(models.Model):
 	class Meta:
 		verbose_name_plural = "charities"
 
-class User(models.Model):
+class Profile(models.Model):
 	name = models.CharField(max_length=64)
 	current_points = models.IntegerField(default=0)
 	total_points = models.IntegerField(default=0)
 	friends = models.ManyToManyField("self",blank=True)
 	achievements = models.ManyToManyField("Achievement",blank=True)
+	user = models.OneToOneField(User, on_delete=models.CASCADE) # connected to admin user
+
 
 	def __str__(self):
 		return self.name
@@ -41,7 +45,7 @@ class Activity(models.Model):
 		('D', 'Donation'),
 		('E', 'Earning')
 	]
-	user = models.ForeignKey("User", on_delete=models.CASCADE)	
+	profile = models.ForeignKey("Profile", on_delete=models.CASCADE, null=True)	
 	charity = models.ForeignKey("Charity", on_delete=models.CASCADE, null=True)
 	act = models.CharField(max_length=20, choices=act_types)
 	points = models.IntegerField(default=0)
@@ -49,7 +53,7 @@ class Activity(models.Model):
 
 	def __str__(self):
 		if self.charity:
-			return self.user + " donated " + self.points + " points to " + self.charity
+			return self.profile + " donated " + self.points + " points to " + self.charity
 		else:
-			return self.user + " earned " + self.points + " points"
+			return self.profile + " earned " + self.points + " points"
 
