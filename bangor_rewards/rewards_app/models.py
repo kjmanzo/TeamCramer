@@ -4,12 +4,52 @@ from django.db import models
 
 # Create your models here.
 class Charity(models.Model):
-    name = models.CharField(max_length=64)
-    points = models.IntegerField(default=0)
-    mission_statement = models.CharField(max_length=360, blank=True, null=True)
+	name = models.CharField(max_length=64)
+	points = models.IntegerField(default=0)
+	description = models.CharField(max_length=360, blank=True, null=True)
+	image_url = models.URLField(default="http://google.com")
+	website = models.URLField(default="http://google.com")
+	latitude = models.FloatField(default=0)
+	longitude = models.FloatField(default=0)
 
-    def __str__(self):
-        return self.name
+	def __str__(self):
+		return self.name
 
-    class Meta:
-        verbose_name_plural = "charities"
+	class Meta:
+		verbose_name_plural = "charities"
+
+class User(models.Model):
+	name = models.CharField(max_length=64)
+	current_points = models.IntegerField(default=0)
+	total_points = models.IntegerField(default=0)
+	friends = models.ManyToManyField("self")
+	achievements = models.ManyToManyField("Achievement")
+
+	def __str__(self):
+		return self.name
+
+class Achievement(models.Model):
+	name = models.CharField(max_length=64)
+	description = models.CharField(max_length=360)
+
+	def __str__(self):
+		return self.name
+
+
+class Activity(models.Model):
+	act_types = [
+		('D', 'Donation'),
+		('E', 'Earning')
+	]
+	user = models.ForeignKey("User", on_delete=models.CASCADE)	
+	charity = models.ForeignKey("Charity", on_delete=models.CASCADE, null=True)
+	act = models.CharField(max_length=20, choices=act_types)
+	points = models.IntegerField(default=0)
+	timestamp = models.DateField(auto_now=True)
+
+	def __str__(self):
+		if self.charity:
+			return self.user + " donated " + self.points + " points to " + self.charity
+		else:
+			return self.user + " earned " + self.points + " points"
+
