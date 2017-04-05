@@ -1,10 +1,12 @@
-from django.shortcuts import render
+from django.shortcuts import render, get_object_or_404
+from django.template import RequestContext
 from django.template import loader
 from django.http import HttpResponse
+from django.http import HttpResponseRedirect
 
 from .models import Charity
-from .models import User
 from .models import Activity
+from .models import Profile
 from .forms import FriendForm
 
 
@@ -17,6 +19,7 @@ from .forms import FriendForm
 
 #forms tutorial...
 def add_friend(request):
+	# /rewards_app/add_friend/ part...
     # if this is a POST request we need to process the form data
     if request.method == 'POST':
         # create a form instance and populate it with data from the request:
@@ -26,17 +29,30 @@ def add_friend(request):
             # process the data in form.cleaned_data as required
             # ...
             # redirect to a new URL:
+            # print("FRIEND FORM IS HERE::"+form.errors.as_data())
             return HttpResponseRedirect('/thanks/')
 
     # if a GET (or any other method) we'll create a blank form
     else:
         form = FriendForm()
+    
+    
+    # /rewards_app/friends/ part...
+    profiles = Profile.objects.order_by('-name')
+    # friends = request.user.inlines.Profile.friends.objects.order_by('-name')
+    # print(request.user.username)
 
-    return render(request, 'rewards_app/friends.html', {'form': form})
+    context = {
+          'form':form,
+          'profiles':profiles,
+          # 'friends':friends,
+      }
+
+    return render(request, 'rewards_app/friends.html', context)
 
 def index(request):
-    user = User.objects.filter(pk=1)[0]
+    user = Profile.objects.filter(pk=1)[0]
     friends = user.friends.all()
     friend_ids = [f.pk for f in friends]
-    feed = Activity.objects.filter(user_id__in=friend_ids).order_by('timestamp')
+    feed = Activity.objects.filter(profile_id__in=friend_ids).order_by('timestamp')
     return render(request, 'rewards_app/home.html', {'feed': feed})
