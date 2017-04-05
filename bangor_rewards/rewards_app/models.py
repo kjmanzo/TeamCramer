@@ -52,6 +52,6 @@ class Activity(models.Model):
 
 	def __str__(self):
 		if self.charity:
-			return "Donated " + str(self.points) + " points to " + self.charity
+			return "Donated " + str(self.points) + " points to " + self.charity.name
 		else:
 			return "Earned " + str(self.points) + " points"
