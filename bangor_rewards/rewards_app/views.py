@@ -3,14 +3,16 @@ from django.template import loader
 from django.http import HttpResponse
 
 from .models import Charity
+from .models import User
+from .models import Activity
 from .forms import FriendForm
 
 
 # Shows list of charities in DB
-def index(request):
+"""def index(request):
     latest_charity_list = Charity.objects.order_by('-name')[:5]
     context = {'latest_charity_list': latest_charity_list}
-    return render(request, 'rewards_app/index.html', context)
+    return render(request, 'rewards_app/index.html', context)"""
 
 
 #forms tutorial...
@@ -31,3 +33,10 @@ def add_friend(request):
         form = FriendForm()
 
     return render(request, 'rewards_app/friends.html', {'form': form})
+
+def index(request):
+    user = User.objects.filter(pk=1)[0]
+    friends = user.friends.all()
+    friend_ids = [f.pk for f in friends]
+    feed = Activity.objects.filter(user_id__in=friend_ids).order_by('timestamp')
+    return render(request, 'rewards_app/home.html', {'feed': feed})

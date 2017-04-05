@@ -22,8 +22,8 @@ class User(models.Model):
 	name = models.CharField(max_length=64)
 	current_points = models.IntegerField(default=0)
 	total_points = models.IntegerField(default=0)
-	friends = models.ManyToManyField("self")
-	achievements = models.ManyToManyField("Achievement")
+	friends = models.ManyToManyField("self", blank=True)
+	achievements = models.ManyToManyField("Achievement", blank=True)
 
 	def __str__(self):
 		return self.name
@@ -49,7 +49,7 @@ class Activity(models.Model):
 
 	def __str__(self):
 		if self.charity:
-			return self.user + " donated " + self.points + " points to " + self.charity
+			return "Donated " + str(self.points) + " points to " + self.charity
 		else:
-			return self.user + " earned " + self.points + " points"
+			return "Earned " + str(self.points) + " points"
 

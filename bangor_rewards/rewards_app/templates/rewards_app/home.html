@@ -32,7 +32,7 @@
                 }
             }
         }
-        function addFriendUpdate()
+        /*function addFriendUpdate()
         {
             var colors = ["#be0000", "Blue", "#037d50", "#8E4585", "#40e0d0"];
             var color = colors[Math.floor(Math.random()*colors.length)];
@@ -70,7 +70,7 @@
             var time = times[Math.floor(Math.random()*times.length)];
             setTimeout(addFriendUpdate, time);
         }
-        setTimeout(addFriendUpdate, 1000);
+        setTimeout(addFriendUpdate, 1000);*/
 
     </script>
 </head>
@@ -123,7 +123,20 @@
     </div>
     <div style="height:55%; margin-top: 5%">
         <div class="text textLarge blue centerAlign" style=" height: 10%; width:100%;">Friend Feed</div>
-        <div class="card" style="margin-top: 15px; height:90%; overflow: scroll; padding:10px" id="friendFeed"></div>
+        <div class="card" style="margin-top: 15px; height:90%; overflow: scroll; padding:10px" id="friendFeed">
+            
+            {% for line in feed %}
+                <div class="card friendUpdate">
+                    <div class="profilePic" style="background-color: #FF0000"></div>
+                    <div class=" text textSmall friendUpdateUsername">
+                        {{ line.user }}
+                    </div>
+                    <div class=" text textSmall gray friendUpdateText">
+                        {{ line }}
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
     </div>
 </div>
 </body>
