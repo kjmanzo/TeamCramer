@@ -28,7 +28,7 @@ def add_friend(request):
             # process the data in form.cleaned_data as required
             # ...
             # redirect to a new URL:
-            print("FRIEND FORM IS HERE::"+form.friend_name)
+            # print("FRIEND FORM IS HERE::"+form.errors.as_data())
             return HttpResponseRedirect('/thanks/')
 
     # if a GET (or any other method) we'll create a blank form
