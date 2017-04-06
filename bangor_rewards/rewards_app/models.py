@@ -44,8 +44,8 @@ class Activity(models.Model):
 		('D', 'Donation'),
 		('E', 'Earning')
 	]
-	profile = models.ForeignKey("Profile", on_delete=models.CASCADE, null=True)	
-	charity = models.ForeignKey("Charity", on_delete=models.CASCADE, null=True)
+	profile = models.ForeignKey("Profile", on_delete=models.CASCADE, null=True)
+	charity = models.ForeignKey("Charity", on_delete=models.CASCADE, blank=True, null=True)
 	act = models.CharField(max_length=20, choices=act_types)
 	points = models.IntegerField(default=0)
 	timestamp = models.DateField(auto_now=True)
