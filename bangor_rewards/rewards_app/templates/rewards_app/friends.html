@@ -1,0 +1,37 @@
+{% load static %}
+<link rel="stylesheet" type="text/css" href="{% static 'rewards_app/style.css' %}" />
+
+<h1>Friends List</h1>
+
+
+<h2>Bangor Savings Rewards App</h2>
+
+
+<form action="/rewards_app/add_friend/" method="post">
+
+    {% csrf_token %}
+    {{ form.friend_name.label }}
+    {{ form.friend_name }}
+
+    <input type="submit" value="Add Friend"/>
+</form>	
+
+
+<h4>List of All Profiles</h4>
+
+{% for u in profiles %}
+	-
+    {{ u.name }}:
+    {{ u.current_points }},
+    <br></br>
+{% endfor %}
+
+
+<h4>List of All Friends</h4>
+
+{% for v in friends %}
+	-
+    {{ v.name }}:
+    {{ v.current_points }},
+    <br></br>
+{% endfor %}

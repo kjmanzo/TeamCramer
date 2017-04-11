@@ -1,0 +1,5 @@
+# File that stores what git will ignore
+*.pyc
+*.sqlite
+*.sqlite3
+.DS_Store
